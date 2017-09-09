@@ -1,0 +1,13 @@
+[Unit]
+Description=uWSGI instance to serve HelloWorld
+After=network.target
+
+[Service]
+User=miusuario
+Group=nginx
+WorkingDirectory=/home/miusuario/deploy
+Environment="PATH=/home/miusuario/deploy/env/bin"
+ExecStart=/home/miusuario/miusuario/env/bin/uwsgi --ini deploy.ini
+
+[Install]
+WantedBy=multi-user.target
